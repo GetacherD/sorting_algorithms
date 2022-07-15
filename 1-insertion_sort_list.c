@@ -23,7 +23,7 @@ void add_to_start(listint_t **list, listint_t *cur, listint_t *pivot)
  */
 void _exec_sort(listint_t **list)
 {
-	listint_t *cur, *pivot, *mover, *head;
+	listint_t *cur, *pivot, *mover;
 	int add_start = 1;
 
 	cur = (*list)->next;
@@ -67,8 +67,7 @@ void _exec_sort(listint_t **list)
  */
 void insertion_sort_list(listint_t **list)
 {
-	listint_t *cur, *pivot, *mover, *head;
-	int add_start = 1;
+	listint_t *cur;
 
 	if (!list || !(*list) || !((*list)->next))
 		return;
