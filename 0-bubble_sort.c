@@ -6,7 +6,7 @@
  */
 void bubble_sort(int *array, size_t size)
 {
-	size_t i = 0, j = 0;
+	size_t i = 0;
 	int tmp;
 	size_t stop = size;
 	int swapped = 0;
@@ -22,8 +22,8 @@ void bubble_sort(int *array, size_t size)
 				array[i] = array[i + 1];
 				array[i + 1] = tmp;
 				swapped = 0;
+				print_array(array, size);
 			}
-			print_array(array, size);
 		}
 		stop--;
 	}
