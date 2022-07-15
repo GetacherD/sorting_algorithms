@@ -41,5 +41,7 @@ void qs(int *array, size_t size, int left, int right)
  */
 void quick_sort(int *array, size_t size)
 {
+	if (!array || size == 1)
+		return;
 	qs(array, size,  0, size - 1);
 }
