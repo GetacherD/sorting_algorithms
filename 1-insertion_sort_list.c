@@ -9,9 +9,6 @@ void insertion_sort_list(listint_t **list)
 	listint_t *M, *cur, *pivot;
 
 	M = (*list);
-	while (M && M->next && (M->n < (M->next)->n))
-		M = M->next;
-	print_list(*list);
 	while (M)
 	{
 		pivot = M->next;
