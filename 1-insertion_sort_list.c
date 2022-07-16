@@ -7,6 +7,7 @@ void insertion_sort_list(listint_t **list)
 {
 
 	listint_t *M, *cur, *pivot;
+	int printed = 1;
 
 	M = (*list);
 	while (M)
@@ -27,8 +28,10 @@ void insertion_sort_list(listint_t **list)
 			M->next = cur;
 			cur = M->prev;
 			print_list(*list);
+			printed = 1;
 		}
 		M = pivot;
-		print_list(*list);
+		if (!printed)
+			print_list(*list);
 	}
 }
