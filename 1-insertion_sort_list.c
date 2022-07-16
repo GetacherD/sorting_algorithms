@@ -1,11 +1,12 @@
 #include "sort.h"
 /**
- * insertion_sort_list - sort using insertion algorithm
- * @list: head pointer to doubly linked list
+ * low_insert - sort for 2 elements only
+ * @list: list with 2 elements
  */
-void insertion_sort_list(listint_t **list)
+void low_insert(listint_t **list)
 {
-	listint_t *cur, *M, *pivot;
+
+	listint_t *cur, *M;
 
 	if (!list || !(*list) || !((*list)->next))
 		return;
@@ -24,24 +25,17 @@ void insertion_sort_list(listint_t **list)
 		print_list(*list);
 		return;
 	}
-	M = (*list)->next;
-	cur = *list;
-	if (cur->n > M->n)
-	{
-		M = *list;
-		*list = (*list)->next;
-		cur = *list;
-		cur->prev = NULL;
-		pivot = cur->next;
-	}
-	else
-	{
-		pivot = M->next;
-		if (cur)
-			cur->next = pivot;
-		if (pivot)
-			pivot->prev = cur;
-	}
+}
+/**
+ * exec_insert - sort and insert
+ * @list: list head
+ * @cur: cur pointer
+ * @M: elemnt under compare
+ * @pivot: next element poniter
+ */
+void exec_insert(listint_t **list,
+		listint_t *cur, listint_t *M, listint_t *pivot)
+{
 	while (M)
 	{
 		while (cur)
@@ -75,5 +69,35 @@ void insertion_sort_list(listint_t **list)
 				pivot->prev = cur;
 		}
 	}
+}
+
+/**
+ * insertion_sort_list - sort using insertion algorithm
+ * @list: head pointer to doubly linked list
+ */
+void insertion_sort_list(listint_t **list)
+{
+	listint_t *cur, *M, *pivot;
+
+	low_insert(list);
+	M = (*list)->next;
+	cur = *list;
+	if (cur->n > M->n)
+	{
+		M = *list;
+		*list = (*list)->next;
+		cur = *list;
+		cur->prev = NULL;
+		pivot = cur->next;
+	}
+	else
+	{
+		pivot = M->next;
+		if (cur)
+			cur->next = pivot;
+		if (pivot)
+			pivot->prev = cur;
+	}
+	exec_insert(list, cur, M, pivot);
 }
 
