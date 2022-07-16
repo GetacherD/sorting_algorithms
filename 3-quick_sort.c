@@ -14,7 +14,6 @@ void qs(int *array, size_t size, int left, int right)
 	int j =  left;
 
 	if (left >= right)
-
 		return;
 	while (j < right)
 	{
