@@ -7,11 +7,11 @@ void insertion_sort_list(listint_t **list)
 {
 
 	listint_t *M, *cur, *pivot;
-	int printed = 1;
 
 	M = (*list);
 	while (M && M->next && (M->n < (M->next)->n))
 		M = M->next;
+	print_list(*list);
 	while (M)
 	{
 		pivot = M->next;
@@ -30,11 +30,7 @@ void insertion_sort_list(listint_t **list)
 			M->next = cur;
 			cur = M->prev;
 			print_list(*list);
-			printed = 1;
 		}
 		M = pivot;
-		if (!printed)
-			print_list(*list);
-		printed = 0;
 	}
 }
