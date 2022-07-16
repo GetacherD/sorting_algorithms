@@ -40,8 +40,7 @@ void selection_sort(int *array, size_t size)
 			min = array[i + 1];
 		if (stop == 1)
 			break;
-		else
-			stop = 1;
+		stop = 1;
 		ok_swap = 0;
 		j = i + 2;
 	}
