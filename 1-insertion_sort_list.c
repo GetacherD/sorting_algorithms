@@ -11,7 +11,6 @@ void insertion_sort_list(listint_t **list)
 		return;
 	if ((*list)->next->next == NULL)
 	{
-		printf("Two Elements\n");
 		cur = *list;
 		M = cur->next;
 		if (cur->n > M->n)
@@ -22,6 +21,7 @@ void insertion_sort_list(listint_t **list)
 			M->prev = NULL;
 			*list = M;
 		}
+		print_list(*list);
 		return;
 	}
 	M = (*list)->next;
@@ -63,6 +63,7 @@ void insertion_sort_list(listint_t **list)
 			M->prev = NULL;
 			*list = M;
 		}
+		print_list(*list);
 		M = pivot;
 		if (M)
 		{
