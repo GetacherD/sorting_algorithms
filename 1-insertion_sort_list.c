@@ -84,14 +84,19 @@ void insertion_sort_list(listint_t **list)
 	cur = *list;
 	if (cur->n > M->n)
 	{
-		M = *list;
-		*list = (*list)->next;
+		cur->next = M->next;
+		M->next = cur;
+		cur->prev = M;
+		M->prev = NULL;
+		*list = M;
+		print_list(*list);
+		M = (*list)->next;
 		cur = *list;
-		cur->prev = NULL;
-		pivot = cur->next;
+		pivot = M->next;
 	}
 	else
 	{
+		print_list(*list);
 		pivot = M->next;
 		if (cur)
 			cur->next = pivot;
