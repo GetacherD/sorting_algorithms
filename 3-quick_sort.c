@@ -6,8 +6,9 @@
  * @size: size of array
  * @left: start index
  * @right: end index
+ * @first: when to print
  */
-void qs(int *array, size_t size, int left, int right)
+void qs(int *array, size_t size, int left, int right, int first)
 {
 	int pivot = array[right];
 	int i = left - 1, tmp;
@@ -15,24 +16,26 @@ void qs(int *array, size_t size, int left, int right)
 
 	if (left >= right)
 		return;
-	while (j < right)
+	for (j = left; j < right; j++)
 	{
 		if (array[j] < pivot)
 		{
 			i++;
-			tmp = array[i];
-			array[i] = array[j];
-			array[j] = tmp;
+			tmp = array[j];
+			array[j] = array[i];
+			array[i] = tmp;
 		}
-		j++;
 	}
+	if (!first)
+		print_array(array, size);
 	i++;
-	tmp = array[i];
-	array[i] = pivot;
-	array[right] = tmp;
-	print_array(array, size);
-	qs(array, size, left, i - 1);
-	qs(array, size, i + 1, right);
+	tmp = array[right];
+	array[right] = array[i];
+	array[i] = tmp;
+	if (first)
+		print_array(array, size);
+	qs(array, size, left, i - 1, 0);
+	qs(array, size, i + 1, right, 0);
 }
 /**
  * quick_sort - sort array using quick sort algorith
@@ -41,10 +44,11 @@ void qs(int *array, size_t size, int left, int right)
  */
 void quick_sort(int *array, size_t size)
 {
+
 	if (!array || size == 1)
 	{
 		return;
 	}
-	qs(array, size,  0, size - 1);
+	qs(array, size,  0, size - 1, 1);
 	print_array(array, size);
 }
