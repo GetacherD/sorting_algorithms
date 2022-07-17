@@ -51,7 +51,6 @@ void quick_sort(int *array, size_t size)
 
 	if (!array || size == 1)
 	{
-		print_array(array, size);
 		return;
 	}
 	qs(array, size,  0, size - 1, odd);
