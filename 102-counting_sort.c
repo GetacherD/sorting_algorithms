@@ -27,9 +27,9 @@ int count_n(int n, int *array, size_t size)
 void counting_sort(int *array, size_t size)
 {
 	int max = array[0];
-	int i;
+	size_t i;
 	int *index, *value;
-	int c;
+	int c, j;
 	int *array_index;
 
 	for (i = 0; i < size; i++)
@@ -37,21 +37,21 @@ void counting_sort(int *array, size_t size)
 			max = array[i];
 	index = (int *)malloc(sizeof(int) * (max + 1));
 	value = (int *)malloc(sizeof(int) * (max + 1));
-	for (i = 0; i <= max; i++)
-		value[i] = i;
-	for (i = 0; i <= max; i++)
+	for (j = 0; j <= max; j++)
+		value[j] = j;
+	for (j = 0; j <= max; j++)
 	{
-		c = count_n(value[i], array, size);
+		c = count_n(value[j], array, size);
 		if (c > 0)
-			index[i] = c;
+			index[j] = c;
 		else
-			index[i] = 0;
+			index[j] = 0;
 	}
 	printf("%d, ", index[0]);
-	for (i = 1; i < max; i++)
+	for (j = 1; j < max; j++)
 	{
-		index[i] = index[i] + index[i - 1];
-		printf("%d, ", index[i]);
+		index[j] = index[j] + index[j - 1];
+		printf("%d, ", index[j]);
 	}
 	index[max] = index[max] + index[max - 1];
 	printf("%d\n", index[max]);
