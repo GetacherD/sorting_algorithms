@@ -13,19 +13,6 @@ void insertion_sort_list(listint_t **list)
 	{
 		pivot = M->next;
 		cur = M->prev;
-		if (pivot && pivot->n < M->n)
-		{
-			if (cur)
-				cur->next = pivot;
-			pivot->prev = cur;
-			M->next = pivot->next;
-			M->prev = pivot;
-			pivot->next = M;
-			if (M->next)
-				M->next->prev = M;
-			M = pivot;
-			pivot = M->next;
-		}
 		while (cur && cur->n > M->n)
 		{
 			cur->next = M->next;
