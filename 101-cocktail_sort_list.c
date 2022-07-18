@@ -50,6 +50,8 @@ void cocktail_sort_list(listint_t **list)
 	while (ever_swap)
 	{
 		cur = Move_fwd(list, &ever_swap);
+		if (ever_swap == 1)
+			break;
 		while (cur)
 		{
 			next = cur->prev;
@@ -76,10 +78,7 @@ void cocktail_sort_list(listint_t **list)
 			}
 		}
 		if (cur == NULL)
-		{
 			cur = prev;
-			*list = cur;
-		}
 		if (ever_swap == 1)
 			break;
 		ever_swap = 1;
