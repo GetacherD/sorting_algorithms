@@ -25,7 +25,6 @@ void insertion_sort_list(listint_t **list)
 				M->next->prev = M;
 			M = pivot;
 			pivot = M->next;
-			print_list(*list);
 		}
 		while (cur && cur->n > M->n)
 		{
@@ -40,7 +39,7 @@ void insertion_sort_list(listint_t **list)
 			cur->prev = M;
 			M->next = cur;
 			cur = M->prev;
-			print_list(*list); 
+			print_list(*list);
 		}
 		M = pivot;
 	}
