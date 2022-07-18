@@ -25,4 +25,5 @@ void selection_sort(int *array, size_t size);
 void quick_sort(int *array, size_t size);
 void cocktail_sort_list(listint_t **list);
 listint_t *Move_fwd(listint_t **list, int *ever_swap);
+void counting_sort(int *array, size_t size);
 #endif
