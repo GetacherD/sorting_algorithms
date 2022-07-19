@@ -9,8 +9,16 @@
  */
 void merge(int *left, int *right, size_t size_L, size_t size_R, int *array)
 {
-	size_t i = 0, j = 0, k = 0;
+	size_t i = 0, j = 0, k = 0, ip, jp;
 
+	printf("Merging...\n[left]: ");
+	for (ip = 0; ip < size_L - 1; ip++)
+		printf("%d, ", left[ip]);
+	printf("%d\n", left[size_L - 1]);
+	printf("[right]: ");
+	for (jp = 0; jp < size_R - 1; jp++)
+		printf("%d, ", right[jp]);
+	printf("%d\n", right[size_R - 1]);
 	while (i < size_L && j < size_R)
 	{
 		if (left[i] < right[j])
@@ -37,6 +45,10 @@ void merge(int *left, int *right, size_t size_L, size_t size_R, int *array)
 		j++;
 		k++;
 	}
+	printf("[Done]: ");
+	for (i = 0; i < k - 1; i++)
+		printf("%d, ", array[i]);
+	printf("%d\n", array[k - 1]);
 }
 /**
  * merge_sort - sort array using merge algorithm
