@@ -49,14 +49,14 @@ void copy_data(int *array, size_t size)
  */
 void counting_sort(int *array, size_t size)
 {
-	int max = array[0];
+	int max, c, j;
 	size_t i;
 	int *index, *value;
-	int c, j;
 	int *array_index;
 
-	if (array == NULL ||size == 1)
+	if (array == NULL || size == 1)
 		return;
+	max = array[0];
 	for (i = 0; i < size; i++)
 		if (array[i] > max)
 			max = array[i];
