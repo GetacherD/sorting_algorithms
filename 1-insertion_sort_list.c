@@ -8,6 +8,8 @@ void insertion_sort_list(listint_t **list)
 
 	listint_t *M, *cur, *pivot;
 
+	if (*list == NULL || list == NULL)
+		return;
 	M = (*list);
 	while (M)
 	{
