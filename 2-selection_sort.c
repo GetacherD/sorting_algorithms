@@ -22,6 +22,7 @@ void selection_sort(int *array, size_t size)
 			{
 				J = j;
 				ok_swap = 1;
+				min = array[j];
 			}
 			if (j < size - 1 && array[j] > array[j + 1])
 				stop = 0;
