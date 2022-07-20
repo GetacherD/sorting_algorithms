@@ -47,11 +47,11 @@ void cocktail_sort_list(listint_t **list)
 	listint_t *cur, *next, *prev = NULL;
 	int ever_swap = 1;
 
+	if (list == NULL || *list == NULL)
+		return;
 	while (ever_swap)
 	{
 		cur = Move_fwd(list, &ever_swap);
-		if (ever_swap == 1)
-			break;
 		while (cur)
 		{
 			next = cur->prev;
